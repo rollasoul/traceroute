@@ -32,22 +32,8 @@ def traceroute(url_ip, trace_url):
     with open("trace_client.txt", "a") as tracer:
         tracer.write("\ntraced url: {} \n".format(trace_url))
         tracer.write("tracer start timestamp: {} \n".format(datetime.now()))
-        # stdout = Popen('termux-location -p network', shell=True, stdout=PIPE).stdout
-        # output = stdout.read()
-        # gps = output.decode()
-        # output = gps.split()
-        # for item in range(len(output)):
-            # output[item] = output[item].replace(',', '').strip()
-        # print(output[2])
         tracer.write("latitude: {} \n".format("none"))
         tracer.write("longitude: {} \n".format("none"))
-        # geolocator = Nominatim(user_agent="myapp")
-        # lat_long = output[2] + ", " + output[4]
-        # real_address = geolocator.reverse(lat_long)
-        # print(real_address)
-        # tracer.write("trace start address: {} \n".format(real_address))
-        # wifi_network = subprocess.run("/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | grep SSID'", shell=True, stdout=tracer)
-        # tracer.write("tracer wifi-network: {} \n".format(wifi_network))
         time.sleep(0.5)
     with open("trace_client.txt", "a") as tracer:
         subprocess.run('traceroute "{}"'.format(url_ip), shell=True, stdout=tracer)
